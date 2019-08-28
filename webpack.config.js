@@ -36,10 +36,21 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg|webp)$/,
+        exclude: [/favicons/],
         use: {
           loader: 'file-loader',
           options: {
             name: 'images/[name].[ext]'
+          },
+        }
+      },
+      {
+        test: /\.(png|xml|json|ico)$/,
+        include: [/favicons/],
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
           },
         }
       },
